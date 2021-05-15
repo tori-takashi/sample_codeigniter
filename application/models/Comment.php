@@ -5,7 +5,7 @@
       }
 
       public function get_all_comments() {
-          return $this->db->get("comments");
+          return $this->db->get("comments")->result_array();
       }
   }
 ?>
