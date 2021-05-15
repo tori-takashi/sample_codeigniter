@@ -1,5 +1,5 @@
 <?php
-  class Comment_model extends CI_Model {
+  class Comment extends CI_Model {
       public function __construct() {
           $this->load->database();
       }
@@ -8,3 +8,4 @@
           return $this->db->get("comments");
       }
   }
+?>
