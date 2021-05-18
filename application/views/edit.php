@@ -192,6 +192,21 @@ hr {
     border: 1px solid #4dc100;
 }
 
+.btn_cancel {
+	display: inline-block;
+	margin-right: 10px;
+	padding: 10px 20px;
+	color: #555;
+	font-size: 86%;
+	border-radius: 5px;
+	border: 1px solid #999;
+}
+.btn_cancel:hover {
+	color: #999;
+	border-color: #999;
+	text-decoration: none;
+}
+
 .error_message {
     margin-bottom: 20px;
     padding: 10px;
@@ -300,6 +315,7 @@ article.reply::before {
         <label for="message">ひと言メッセージ</label>
         <?php echo form_textarea('message', $comment["comment"]); ?>
     </div>
+    <a class="btn_cancel" href=<?php echo site_url("/admin"); ?>>キャンセル</a>
     <?php echo form_submit("btn_submit", "更新"); ?>
 
 <?php echo form_close(); ?>
