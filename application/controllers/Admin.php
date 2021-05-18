@@ -5,10 +5,10 @@
       $this->load->model('comment');
       $this->load->helper('url');
       $this->load->helper("url_helper");
+      $this->load->library('session');
     }
 
     public function index() {
-      $this->load->library('session');
       $this->load->helper('form');
 
       $data["is_succeed"] = $this->session->is_succeed;
@@ -27,8 +27,6 @@
     }
 
     public function login(){
-      $this->load->library('session');
-
       $password = "adminPassword";
       $admin_password = $this->input->post("admin_password");
       if ($admin_password === $password) {
@@ -41,7 +39,6 @@
         $this->session->set_userdata('validation_messages', "ログインに失敗しました。");
       }
       redirect('/admin');
-
     }
 
     public function logout() {

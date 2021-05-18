@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>ひと言掲示板　管理ページ</title>
+<title>ひと言掲示板　管理ページ（投稿の編集）</title>
 <style>
 
 /*------------------------------
@@ -145,7 +145,6 @@ label {
 }
 
 input[type="text"],
-input[type="password"],
 textarea {
 	margin-bottom: 20px;
 	padding: 10px;
@@ -155,9 +154,7 @@ textarea {
     background: #fff;
 }
 
-input[type="text"],
-input[type="password"],
-{
+input[type="text"] {
 	width: 200px;
 }
 textarea {
@@ -180,13 +177,6 @@ input[type="submit"] {
 input[type=submit]:hover,
 button:hover {
     background-color: #2392d8;
-}
-input[name=btn_logout] {
-	margin-top: 40px;
-	background-color: #666;
-}
-input[name=btn_logout]:hover {
-	background-color: #777;
 }
 
 hr {
@@ -258,12 +248,6 @@ article.reply::before {
 		color: #999;
 		line-height: 1.6em;
 		font-size: 72%;
-    }
-   	.info p {
-		display: inline-block;
-		line-height: 1.6em;
-        font-size: 86%;
-        margin-right: 0.4em;
 	}
     article p {
         color: #555;
@@ -290,53 +274,40 @@ article.reply::before {
 </head>
 <body>
 
-<h1>ひと言掲示板　管理ページ</h1>
-
-<?php echo $validation_messages; ?>
-
 <?php if($admin_login): ?>
+<h1>ひと言掲示板　管理ページ（投稿の編集）</h1>
+<!-- ここにメッセージの入力フォームを設置 -->
+<?php echo $validation_messages; ?>
+<?php echo form_open('update', "", array('id' => $comment['id'])); ?>
 
-    <?php echo form_open('download_csv'); ?>
-        <?php echo form_dropdown('limit', $download_limit_options) ?>
-        <?php echo form_submit("btn_download", "ダウンロード"); ?>
-    <?php echo form_close(); ?>
+    <div>
+        <label for="view_name">表示名</label>
+        <?php echo form_input('view_name', $comment["user_name"]); ?>
+    </div>
 
-    <section>
-        <!-- ここに投稿されたメッセージを表示 -->
-        <?php if( !empty($comments) ): ?>
+    <div>
+        <label for="message">ひと言メッセージ</label>
+        <?php echo form_textarea('message', $comment["comment"]); ?>
+    </div>
+    <?php echo form_submit("btn_submit", "書き込む"); ?>
 
-            <?php foreach ($comments as $comment): ?>
-                <article>
-                    <div class="info">
-                        <h2><?php echo $comment['user_name'];?></h2>
-                        <time><?php echo date('Y年m月d日 H:i', strtotime($comment['post_date'])); ?></time>
-                        <p><a href=<?php echo site_url('edit/'.$comment['id']); ?>>編集</a>
-                        <p><a href=<?php echo site_url('delete/'.$comment['id']); ?>>削除</a></p>
-                    </div>
-                    <p><?php echo $comment['comment']; ?></p>
-                </article>
-            <?php endforeach ?>
-        <?php endif ?>
-    </section>
+<?php echo form_close(); ?>
 
-    <?php echo form_open('logout'); ?>
-      <?php echo form_submit("btn_logout", "ログアウト"); ?>
-    <?php echo form_close(); ?>
+<hr>
+<section>
+<!-- ここに投稿されたメッセージを表示 -->
+<?php if( !empty($comments) ): ?>
 
-<?php else: ?>
-
-    <?php echo form_open('login'); ?>
-
-        <div>
-            <label for="admin_password">ログインパスワード</label>
-            <?php echo form_password('admin_password'); ?>
-        </div>
-
-        <?php echo form_submit("btn_submit", "ログイン"); ?>
-
-    <?php echo form_close(); ?>
-
+<article>
+  <div class="info">
+    <h2><?php echo $comment['user_name'];?></h2>
+    <time><?php echo date('Y年m月d日 H:i', strtotime($comment['post_date'])); ?></time>
+  </div>
+  <p><?php echo $comment['comment']; ?></p>
+</article>
 <?php endif; ?>
 
+</section>
+<?php endif; ?>
 </body>
 </html>
