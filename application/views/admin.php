@@ -181,6 +181,13 @@ input[type=submit]:hover,
 button:hover {
     background-color: #2392d8;
 }
+input[name=btn_logout] {
+	margin-top: 40px;
+	background-color: #666;
+}
+input[name=btn_logout]:hover {
+	background-color: #777;
+}
 
 hr {
 	margin: 20px 0;
@@ -303,6 +310,10 @@ article.reply::before {
             <?php endforeach ?>
         <?php endif ?>
     </section>
+
+    <?php echo form_open('logout'); ?>
+      <?php echo form_submit("btn_logout", "ログアウト"); ?>
+    <?php echo form_close(); ?>
 
 <?php else: ?>
 

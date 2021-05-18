@@ -44,5 +44,11 @@
 
     }
 
+    public function logout() {
+      $this->load->library('session');
+      $this->session->set_userdata('admin_login', 0);
+      redirect('/admin');
+    }
+
   }
 ?>
