@@ -25,10 +25,12 @@
       $this->form_validation->set_rules('message', 'ひと言メッセージ', 'required', array('required' => "ひと言メッセージを入力してください。"));
 
       if ($this->form_validation->run() == FALSE) {
+        redirect('/');
       } else {
         $this->session->set_userdata('view_name',$this->input->post('view_name'));
         $this->session->set_flashdata('message', "メッセージを書き込みました。");
         $this->comment->set_comment();
+        redirect('/');
       }
 
     }
