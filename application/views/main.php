@@ -277,7 +277,7 @@ article.reply::before {
 <!-- ここにメッセージの入力フォームを設置 -->
 <?php echo $validation_messages; ?>
 
-<?php echo form_open('main/post_comment'); ?>
+<?php echo form_open('post_comment'); ?>
 
     <div>
         <label for="view_name">表示名</label>
