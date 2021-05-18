@@ -57,6 +57,7 @@ $route['logout'] = 'admin/logout';
 $route['edit/(:any)'] = 'edit/edit/$1';
 $route['update'] = 'edit/update';
 $route['delete/(:any)'] = 'delete/delete/$1';
+$route['delete'] = 'delete/commit_delete';
 $route['download_csv'] = 'download/download_csv';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
