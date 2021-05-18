@@ -15,7 +15,7 @@
 
     <div>
         <label for="message">ひと言メッセージ</label>
-        <?php echo form_textarea('message'); ?>
+        <?php echo form_textarea('message', $message); ?>
     </div>
     <?php echo form_submit("btn_submit", "書き込む"); ?>
 
