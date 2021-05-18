@@ -10,7 +10,7 @@
 
     <div>
         <label for="view_name">表示名</label>
-        <input id="view_name" type="input" name="view_name" value=""/>
+        <input id="view_name" type="input" name="view_name" value="<?php echo $view_name ?>"/>
     </div>
 
     <div>
