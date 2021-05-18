@@ -1,5 +1,11 @@
 # codeigniter sample
 
+## 動作確認用動画
+
+[https://www.loom.com/share/78814ef8524a492ab4423dc94ce4f249](https://www.loom.com/share/78814ef8524a492ab4423dc94ce4f249)
+
+## message
+
 CodeIgniter をつかった成果物（掲示板のような簡易的なシステム）
 
 →CodeIgniter のバージョンは 3.1.11 でお願いします
