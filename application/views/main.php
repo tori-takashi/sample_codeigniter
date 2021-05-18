@@ -10,14 +10,14 @@
 
     <div>
         <label for="view_name">表示名</label>
-        <input id="view_name" type="input" name="view_name" value="<?php echo $view_name ?>"/>
+        <?php echo form_input('view_name', $view_name); ?>
     </div>
 
     <div>
         <label for="message">ひと言メッセージ</label>
-        <textarea id="message" name="message"></textarea>
+        <?php echo form_textarea('message'); ?>
     </div>
-    <input type="submit" name="btn_submit" value="書き込む" />
+    <?php echo form_submit("btn_submit", "書き込む"); ?>
 
 </form>
 
