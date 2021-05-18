@@ -274,9 +274,18 @@ article.reply::before {
 </head>
 <body>
 <h1>ひと言掲示板</h1>
-<!-- ここにメッセージの入力フォームを設置 -->
-<?php echo $validation_messages; ?>
 
+<?php if( !empty($validation_messages and $is_succeed === 0) ): ?>
+	<ul class="error_message">
+			<li><?php echo $validation_messages; ?></li>
+	</ul>
+<?php endif; ?>
+
+<?php if( !empty($validation_messages) and $is_succeed === 1 ): ?>
+    <p class="success_message"><?php echo $validation_messages; ?></p>
+<?php endif; ?>
+
+<!-- ここにメッセージの入力フォームを設置 -->
 <?php echo form_open('post_comment'); ?>
 
     <div>
