@@ -11,8 +11,8 @@
       public function set_comment() {
           $this->load->helper('url');
           $data = array(
-              'user_name' => $this->input->post('view_name'),
-              'comment' => $this->input->post('message')
+              'user_name' => html_escape($this->input->post('view_name')),
+              'comment' => html_escape($this->input->post('message'))
           );
 
           return $this->db->insert('comments', $data);
