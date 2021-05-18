@@ -1,10 +1,4 @@
-<?php echo validation_errors(); ?>
-
-<?php if ($success_message): ?>
-    <div>
-      <?php echo $success_message; ?>
-    </div>
-<?php endif; ?>
+<?php echo $validation_messages; ?>
 
 <?php echo form_open('main/post_comment'); ?>
 
