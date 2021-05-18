@@ -36,7 +36,7 @@
       } else {
         $this->session->set_flashdata('is_succeed', 0);
         $this->session->set_userdata('admin_login', 0);
-        $this->session->set_userdata('validation_messages', "ログインに失敗しました。");
+        $this->session->set_userdata('validation_messages', "・ログインに失敗しました。");
       }
       redirect('/admin');
     }

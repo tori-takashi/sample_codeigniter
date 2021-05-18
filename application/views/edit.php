@@ -276,6 +276,17 @@ article.reply::before {
 
 <?php if($admin_login): ?>
 <h1>ひと言掲示板　管理ページ（投稿の編集）</h1>
+
+<?php if( !empty($validation_messages and $is_succeed === 0) ): ?>
+	<ul class="error_message">
+			<li><?php echo $validation_messages; ?></li>
+	</ul>
+<?php endif; ?>
+
+<?php if( !empty($validation_messages) and $is_succeed === 1 ): ?>
+    <p class="success_message"><?php echo $validation_messages; ?></p>
+<?php endif; ?>
+
 <!-- ここにメッセージの入力フォームを設置 -->
 <?php echo $validation_messages; ?>
 <?php echo form_open('update', "", array('id' => $comment['id'])); ?>
@@ -289,7 +300,7 @@ article.reply::before {
         <label for="message">ひと言メッセージ</label>
         <?php echo form_textarea('message', $comment["comment"]); ?>
     </div>
-    <?php echo form_submit("btn_submit", "書き込む"); ?>
+    <?php echo form_submit("btn_submit", "更新"); ?>
 
 <?php echo form_close(); ?>
 

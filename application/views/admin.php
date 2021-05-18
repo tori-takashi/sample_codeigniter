@@ -292,7 +292,15 @@ article.reply::before {
 
 <h1>ひと言掲示板　管理ページ</h1>
 
-<?php echo $validation_messages; ?>
+<?php if( !empty($validation_messages and $is_succeed === 0) ): ?>
+	<ul class="error_message">
+			<li><?php echo $validation_messages; ?></li>
+	</ul>
+<?php endif; ?>
+
+<?php if( !empty($validation_messages) and $is_succeed === 1 ): ?>
+    <p class="success_message"><?php echo $validation_messages; ?></p>
+<?php endif; ?>
 
 <?php if($admin_login): ?>
 

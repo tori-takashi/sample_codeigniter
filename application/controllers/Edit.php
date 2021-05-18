@@ -33,8 +33,8 @@
             $this->session->set_userdata('view_name',$this->input->post('view_name'));
             $this->session->set_userdata('comment',$this->input->post('message'));
 
-            $this->form_validation->set_rules('view_name', '表示名', 'required', array('required' => "表示名を入力してください。"));
-            $this->form_validation->set_rules('message', 'ひと言メッセージ', 'required', array('required' => "ひと言メッセージを入力してください。"));
+            $this->form_validation->set_rules('view_name', '表示名', 'required', array('required' => "・表示名を入力してください。"));
+            $this->form_validation->set_rules('message', 'ひと言メッセージ', 'required', array('required' => "・ひと言メッセージを入力してください。"));
 
             $id = $this->input->post("id");
 
@@ -45,7 +45,7 @@
             } else {
               $this->comment->update_comment($id, $this->input->post("view_name"), $this->input->post("message"));
               $this->session->set_flashdata('is_succeed', 1);
-              $this->session->set_flashdata('validation_messages', "メッセージを書き込みました。");
+              $this->session->set_flashdata('validation_messages', "");
               $this->session->set_userdata('comment',"");
               redirect('/admin');
             }
