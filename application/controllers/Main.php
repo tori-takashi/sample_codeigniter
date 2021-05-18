@@ -16,7 +16,7 @@
       $data["view_name"] = $this->session->view_name;
       $data["message"] = $this->session->comment;
 
-      $data['comments'] = $this->comment->get_all_comments();
+      $data['comments'] = $this->comment->get_comments()->result_array();
 
 		  $this->load->view('main', $data);
     }

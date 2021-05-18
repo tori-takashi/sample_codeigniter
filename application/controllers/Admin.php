@@ -14,8 +14,14 @@
       $data["is_succeed"] = $this->session->is_succeed;
       $data["validation_messages"] = $this->session->validation_messages;
 
-      $data['comments'] = $this->comment->get_all_comments();
+      $data['comments'] = $this->comment->get_comments()->result_array();
       $data["admin_login"] = $this->session->admin_login;
+
+      $data["download_limit_options"] = array(
+        '0' => '全て',
+        '10' => '10件',
+        '30' => '30件'
+      );
 
       $this->load->view('admin', $data);
     }

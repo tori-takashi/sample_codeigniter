@@ -5,8 +5,12 @@
           date_default_timezone_set('Asia/Tokyo');
       }
 
-      public function get_all_comments() {
-          return $this->db->get("comments")->result_array();
+      public function get_comments($download_num = 0) {
+          if ($download_num != 0) {
+            return $this->db->select('*')->from('comments')->limit($download_num)->order_by('post_date', 'ASC')->get();
+          } else {
+            return $this->db->select('*')->from('comments')->order_by('post_date', 'ASC')->get();
+          }
       }
 
       public function set_comment() {

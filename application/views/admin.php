@@ -283,6 +283,11 @@ article.reply::before {
 
 <?php if($admin_login): ?>
 
+    <?php echo form_open('download_csv'); ?>
+        <?php echo form_dropdown('limit', $download_limit_options) ?>
+        <?php echo form_submit("btn_download", "ダウンロード"); ?>
+    <?php echo form_close(); ?>
+
     <section>
         <!-- ここに投稿されたメッセージを表示 -->
         <?php if( !empty($comments) ): ?>

@@ -53,5 +53,6 @@ $route['default_controller'] = 'main/index';
 $route['post_comment'] = 'main/post_comment';
 $route['admin'] = 'admin/index';
 $route['login'] = 'admin/login';
+$route['download_csv'] = 'download/download_csv';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
